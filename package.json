@@ -1,6 +1,6 @@
 {
   "name": "@anhgerel/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": "https://github.com/ankhgerel/utils",
   "author": "__filename",
   "main": "dist/index.js",
