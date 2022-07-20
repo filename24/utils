@@ -1,9 +1,19 @@
 {
   "name": "@anhgerel/utils",
-  "version": "1.0.1",
+  "version": "1.0.3-dev",
   "repository": "https://github.com/ankhgerel/utils",
   "author": "__filename",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -16,10 +26,16 @@
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.6.2",
     "typescript": "^4.7.3"
   },
   "dependencies": {
     "winston": "^3.7.2"
+  },
+  "peerDependencies": {
+    "chalk": "2",
+    "strip-ansi": "^7.0.1"
   }
 }
