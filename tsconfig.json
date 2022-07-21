@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
+    "target": "ESNext",
     "module": "CommonJS",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -12,5 +12,5 @@
     "skipLibCheck": true,
     "newLine": "lf",
     "resolveJsonModule": true
-  }
+  },
 }

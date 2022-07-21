@@ -1,4 +1,15 @@
 {
   "name": "@anhgerel/debug-tool",
-  "packageManager": "yarn@3.2.1"
+  "description": "Discord bot debug tool",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "yarn lint",
+    "lint": "prettier --write . && eslint src --ext mjs,js,ts --fix",
+    "publish": "cliff-jumper"
+  },
+  "packageManager": "yarn@3.2.1",
+  "dependencies": {
+    "discord.js": "14.0.0"
+  }
 }

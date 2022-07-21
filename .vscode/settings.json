@@ -1,5 +1,6 @@
 {
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.tabSize": 2,
   "eslint.workingDirectories": [{ "pattern": "./packages/**" }],
   "editor.formatOnSave": true,
   "editor.formatOnType": true,

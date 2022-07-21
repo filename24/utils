@@ -1,1 +1,1 @@
-# debugTool
+# Debug Tool(discord)
