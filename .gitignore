@@ -15,17 +15,12 @@ pids
 .env
 
 # Dist
-dist/
 
 # Miscellaneous
 .tmp/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+.turbo
 .idea/
 .DS_Store
-tsconfig.tsbuildinfo
-coverage/
 
 # yarn
 .pnp.*
@@ -35,6 +30,3 @@ coverage/
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
-# test
-test/

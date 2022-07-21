@@ -1,32 +1,16 @@
 {
-  // Mapped from https://www.typescriptlang.org/tsconfig
   "compilerOptions": {
-    // Type Checking
-    "strict": true,
-    "skipLibCheck": true,
-
-    // Modules
+    "target": "ES2022",
     "module": "CommonJS",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
-
-    // Emit
-    "declaration": true,
-    "newLine": "lf",
-    "outDir": "dist",
-    "preserveConstEnums": true,
-    "removeComments": false,
     "sourceMap": true,
+    "declaration": true,
+    "removeComments": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-
-    // Language and Environment
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "lib": ["es2021"],
-    "target": "ES6",
-    "useDefineForClassFields": true
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist"]
+    "strict": true,
+    "skipLibCheck": true,
+    "newLine": "lf",
+    "resolveJsonModule": true
+  }
 }
