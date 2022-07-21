@@ -32,7 +32,7 @@ jobs:
           cache-dependency-path: yarn.lock
 
       - name: Install dependencies
-        run: yarn --immutable && yarn global add @favware/cliff-jumper
+        run: yarn --immutable && npm i @favware/cliff-jumper -g
 
       - name: Build dependencies
         run: yarn build
