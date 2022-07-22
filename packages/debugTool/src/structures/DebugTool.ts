@@ -1,10 +1,12 @@
-import { Client } from 'discord.js';
-import { DebugToolOptions } from '../../types';
+import { Client, Collection, Message } from 'discord.js';
+import type { DebugToolOptions } from '../../types';
+import type { DebugProcess } from './DebugProcess';
 
 class DebugTool {
-  private client: Client<boolean>;
+  private client: Client<true>;
   public owners: DebugToolOptions['owners'];
   public readonly options: DebugToolOptions;
+  public process: Collection<string, DebugProcess>;
 
   constructor(client: Client, options: DebugToolOptions) {
     this.options = options;
@@ -17,12 +19,14 @@ class DebugTool {
 
     this.owners = options.owners;
 
-    client.once('ready', () => {
-      if (!this.owners) {
+    client.once('ready', (client) => {
+      if (this.owners.length === 0) {
         console.warn('[ debugTool ] Owners not given. Fetching from Application.');
         client.application.fetch().then((data) => {
-          // @ts-ignore
-          this.owners = data.owner.members?.map((el) => el.id) || [data.owner.id] || [];
+          this.owners =
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            data.owner.members?.map((el) => el.id) || [data.owner.id] || [];
           console.info(
             `[ debugTool ] Fetched ${this.owners.length} owner(s): ${
               this.owners.length > 3
@@ -35,6 +39,11 @@ class DebugTool {
     });
 
     if (!options.aliases || !options.aliases.length) options.aliases = ['debug', 'debugtool'];
+  }
+
+  public async start(message: Message) {
+    if (!this.owners.includes(message.author.id))
+      return this.options.noPermission(message) || message.reply('You are not allowed to use this command.');
   }
 }
 
