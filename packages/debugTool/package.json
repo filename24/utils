@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "yarn lint",
+    "test:dev": "ts-node-dev test/index.ts",
     "lint": "prettier --write . && eslint src --ext mjs,js,ts --fix",
     "publish": "cliff-jumper"
   },
