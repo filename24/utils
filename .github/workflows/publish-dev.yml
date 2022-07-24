@@ -7,7 +7,7 @@ jobs:
   deprecate:
     name: Deprecate
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'ankhgerel' && !github.head_commit.message.includes('skipCI')
+    if: github.repository_owner == 'ankhgerel' && !contains(github.event.commits[0].message, '[skipCI]')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -38,7 +38,7 @@ jobs:
           - package: '@anhgerel/debug-tool'
             folder: 'debugTool'
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'ankhgerel' && !github.head_commit.message.includes('skipCI')
+    if: github.repository_owner == 'ankhgerel' && !contains(github.event.commits[0].message, '[skipCI]')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
