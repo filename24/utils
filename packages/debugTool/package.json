@@ -8,8 +8,16 @@
     "lint": "prettier --write . && eslint src --ext mjs,js,ts --fix",
     "publish": "cliff-jumper"
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
   "packageManager": "yarn@3.2.1",
   "dependencies": {
-    "discord.js": "14.0.0"
+    "discord.js": "14"
   }
 }
