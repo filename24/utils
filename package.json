@@ -5,6 +5,7 @@
     "build": "turbo run build",
     "test": "turbo run lint && turbo run build",
     "dev": "turbo run dev",
+    "publish": "turbo run publish",
     "postinstall": "is-ci || husky install"
   },
   "devDependencies": {
