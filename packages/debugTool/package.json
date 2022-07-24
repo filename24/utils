@@ -1,7 +1,7 @@
 {
   "name": "@anhgerel/debug-tool",
   "description": "Discord bot debug tool",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "yarn lint",
