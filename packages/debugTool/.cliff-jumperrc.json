@@ -3,5 +3,6 @@
   "name": "debugTool",
   "packagePath": ".",
   "monoRepo": true,
-  "tagTemplate": "{{new-version}}"
+  "tagTemplate": "{{new-version}}",
+  "commitMessageTemplate": "chore({{name}}): release v{{new-version}} [skipCI]"
 }

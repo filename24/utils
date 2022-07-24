@@ -4,5 +4,5 @@
   "packagePath": ".",
   "monoRepo": true,
   "tagTemplate": "{{new-version}}",
-  "commitMessageTemplate": "chore(release): {{new-version}} [skipCI]"
+  "commitMessageTemplate": "chore({{name}}): release v{{new-version}} [skipCI]"
 }
