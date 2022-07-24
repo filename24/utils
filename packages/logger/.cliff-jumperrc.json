@@ -3,5 +3,6 @@
   "name": "logger",
   "packagePath": ".",
   "monoRepo": true,
-  "tagTemplate": "{{new-version}}"
+  "tagTemplate": "{{new-version}}",
+  "commitMessageTemplate": "chore(release): {{new-version}} [skipCI]"
 }
