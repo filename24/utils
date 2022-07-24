@@ -8,5 +8,8 @@
   "editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.organizeImports": false
-	},
+  },
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "file:///workspaces/utils/.github/workflows/publish-dev.yml"
+  },
 }

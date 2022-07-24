@@ -4,8 +4,31 @@ name: Publish dev
 on: [ push ]
 
 jobs:
-  npm-publish:
-    name: npm publish
+  deprecate:
+    name: Deprecate
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'ankhgerel' && !github.head_commit.message.includes('skipCI')
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install node.js v16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'yarn'
+          cache-dependency-path: yarn.lock
+
+      - name: Install dependencies
+        run: yarn --immutable
+
+      - name: Deprecate versions
+        run: 'yarn npm-deprecate --name "*dev*" --package @anhgerel/logger @anhgerel/debug-tool'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  publish:
+    name: Publish
+    needs: [ deprecate ]
     strategy:
       fail-fast: false
       matrix:
@@ -15,7 +38,7 @@ jobs:
           - package: '@anhgerel/debug-tool'
             folder: 'debugTool'
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'ankhgerel' && github.actor == 'ankhgerel'
+    if: github.repository_owner == 'ankhgerel' && !github.head_commit.message.includes('skipCI')
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
