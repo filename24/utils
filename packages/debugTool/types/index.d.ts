@@ -1,4 +1,4 @@
-import { Client, Message, Snowflake } from 'discord.js';
+import type { Client, Message } from 'discord.js';
 import DebugTool from '../src/structures/DebugTool';
 
 export interface DebugToolOptions {
@@ -9,6 +9,7 @@ export interface DebugToolOptions {
   noPermission?(message: Message): Promise<any>;
 }
 
+export type Snowflake = string;
 export interface DebugToolProcess {
   name: string;
   execute: DebugProcessFunction;

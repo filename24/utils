@@ -1,4 +1,4 @@
-import { Client, Collection, Message } from 'discord.js';
+import { Client, Message, Collection } from 'discord.js';
 import type { DebugToolOptions } from '../../types';
 import type { DebugProcess } from './DebugProcess';
 
@@ -6,16 +6,17 @@ class DebugTool {
   private client: Client<true>;
   public owners: DebugToolOptions['owners'];
   public readonly options: DebugToolOptions;
-  public process: Collection<string, DebugProcess>;
+  public process: Collection<string, DebugProcess> = new Collection();
 
   constructor(client: Client, options: DebugToolOptions) {
-    this.options = options;
-
     if (!(client instanceof Client)) throw new TypeError('Invalid `client`. `client` parameter is required.');
     this.client = client;
 
     if (options.noPermission && typeof options.noPermission !== 'function')
       throw new TypeError('`noPermission` must allow a function.');
+
+    if (!options.noPermission)
+      options.noPermission = (message) => message.reply('You are not allowed to use this command.');
 
     this.owners = options.owners;
 
@@ -38,12 +39,12 @@ class DebugTool {
       }
     });
 
+    this.options = options;
     if (!options.aliases || !options.aliases.length) options.aliases = ['debug', 'debugtool'];
   }
 
   public async start(message: Message) {
-    if (!this.owners.includes(message.author.id))
-      return this.options.noPermission(message) || message.reply('You are not allowed to use this command.');
+    if (!this.owners.includes(message.author.id)) return this.options.noPermission!(message);
   }
 }
 
