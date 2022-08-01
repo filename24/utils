@@ -1,0 +1,36 @@
+{
+  "name": "@anhgerel/bot",
+  "description": "A discord bot modules",
+  "repository": {
+    "url": "https://github.com/ankhgerel/djs-template",
+    "type": "git"
+  },
+  "license": "MIT",
+  "version": "0.1.1",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "yarn lint",
+    "test:dev": "ts-node-dev test/index.ts",
+    "lint": "prettier --write . && eslint src --ext mjs,js,ts --fix",
+    "publish": "cliff-jumper"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "packageManager": "yarn@3.2.1",
+  "dependencies": {
+    "@anhgerel/logger": "workspace:^",
+    "@prisma/client": "^4.1.1",
+    "discord.js": "^14.1.2",
+    "dokdo": "pikokr/dokdo#v14",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8"
+  }
+}

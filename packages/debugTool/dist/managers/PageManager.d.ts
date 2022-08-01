@@ -6,6 +6,7 @@ export declare class PageManager {
     constructor(pages: string[], message: Message);
     nextPage(): string;
     resolvePage(...pages: string[]): string[];
+    resolveContent(content: string): string;
     previousPage(): string;
     setPage(pageNumber: number): string;
     getPage(page: number): string;
