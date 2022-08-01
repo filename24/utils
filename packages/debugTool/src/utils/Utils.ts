@@ -59,7 +59,10 @@ export function isGenerator(target: any) {
   return target && typeof target.next === 'function' && typeof target.throw === 'function';
 }
 
-export function splitMessage(text: string, { maxLength = 2_000, char = '\n', prepend = '', append = '' } = {}) {
+export function splitMessage(
+  text: string,
+  { maxLength = 2_000, char = [new RegExp(`.{1,2000}`, 'g'), '\n'], prepend = '', append = '' } = {},
+): string[] {
   if (text.length <= maxLength) return [text];
 
   text = resolveString(text);
@@ -70,6 +73,7 @@ export function splitMessage(text: string, { maxLength = 2_000, char = '\n', pre
       if (currentChar instanceof RegExp) {
         splitText = splitText.flatMap((chunk) => chunk.match(currentChar)) as string[];
       } else {
+        if (!currentChar) return splitText;
         splitText = splitText.flatMap((chunk) => chunk.split(currentChar));
       }
     }

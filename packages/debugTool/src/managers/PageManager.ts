@@ -18,7 +18,10 @@ export class PageManager {
     if (this.count >= this.pages.length) {
       this.count = 0;
     }
-    this.resolvePage(...this.pages);
+
+    if (this.pages[this.count].length > 1900) {
+      return this.resolveContent(this.pages[this.count]);
+    }
     return this.pages[this.count];
   }
 
@@ -31,9 +34,12 @@ export class PageManager {
       }
     });
 
-    console.log(resolvedPages.map((page) => page.length));
     this.pages = !resolvedPages.length ? pages : resolvedPages;
     return resolvedPages;
+  }
+
+  public resolveContent(content: string): string {
+    return splitMessage(content)[0];
   }
 
   public previousPage(): string {
