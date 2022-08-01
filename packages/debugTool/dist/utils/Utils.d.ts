@@ -9,7 +9,7 @@ export declare function isInstance(target: unknown, theClass: any): boolean;
 export declare function isGenerator(target: any): any;
 export declare function splitMessage(text: string, { maxLength, char, prepend, append }?: {
     maxLength?: number | undefined;
-    char?: string | undefined;
+    char?: (string | RegExp)[] | undefined;
     prepend?: string | undefined;
     append?: string | undefined;
 }): string[];

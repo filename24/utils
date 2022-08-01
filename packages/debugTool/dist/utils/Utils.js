@@ -62,7 +62,7 @@ function isGenerator(target) {
     return target && typeof target.next === 'function' && typeof target.throw === 'function';
 }
 exports.isGenerator = isGenerator;
-function splitMessage(text, { maxLength = 2_000, char = '\n', prepend = '', append = '' } = {}) {
+function splitMessage(text, { maxLength = 2_000, char = [new RegExp(`.{1,2000}`, 'g'), '\n'], prepend = '', append = '' } = {}) {
     if (text.length <= maxLength)
         return [text];
     text = resolveString(text);
@@ -74,6 +74,8 @@ function splitMessage(text, { maxLength = 2_000, char = '\n', prepend = '', appe
                 splitText = splitText.flatMap((chunk) => chunk.match(currentChar));
             }
             else {
+                if (!currentChar)
+                    return splitText;
                 splitText = splitText.flatMap((chunk) => chunk.split(currentChar));
             }
         }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/favware/cliff-jumper/main/assets/cliff-jumper.schema.json",
-  "name": "debugTool",
+  "name": "bot",
   "packagePath": ".",
   "monoRepo": true,
   "tagTemplate": "{{name}}-{{new-version}}",
