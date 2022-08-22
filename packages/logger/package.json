@@ -20,6 +20,5 @@
   "dependencies": {
     "chalk": "2",
     "winston": "^3.8.1"
-  },
-  "packageManager": "yarn@3.2.1"
+  }
 }
