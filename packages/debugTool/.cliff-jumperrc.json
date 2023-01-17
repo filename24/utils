@@ -1,8 +1,0 @@
-{
-  "$schema": "https://raw.githubusercontent.com/favware/cliff-jumper/main/assets/cliff-jumper.schema.json",
-  "name": "debugTool",
-  "packagePath": ".",
-  "monoRepo": true,
-  "tagTemplate": "{{name}}-{{new-version}}",
-  "commitMessageTemplate": "chore({{name}}): release v{{new-version}} [skipCI]"
-}
