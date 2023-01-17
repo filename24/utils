@@ -1,6 +1,6 @@
 {
   "name": "@anhgerel/logger",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": "https://github.com/ankhgerel/utils",
   "author": "__filename",
   "main": "./dist/index.js",
